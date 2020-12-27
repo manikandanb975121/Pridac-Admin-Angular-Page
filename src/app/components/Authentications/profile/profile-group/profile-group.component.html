@@ -1,0 +1,44 @@
+<h5 class="mb-3 mt-4 text-uppercase"><i class="mdi mdi-cards-variant mr-1"></i>
+    Teams</h5>
+<div class="table-responsive">
+    <table class="table table-borderless mb-0">
+        <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Teams Name</th>
+                <th>Created Date</th>
+                <th>Members</th>
+                <th>Home</th>
+                <th>Created By</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let team of teams; let i = index" (click)="openTeams(team._id)" id="closebutton">
+                <td>{{ i + 1 }}.</td>
+                <td>{{ team.name }}</td>
+                <td>{{ team.created_ts | date: 'medium' }}</td>
+                <td>{{ team.members.length }}</td>
+                <td>
+                    <div *ngIf="team.home === true">
+                        <span class="badge badge-info">Yes</span>
+                    </div>
+                    <div *ngIf="team.home === false">
+                        <span class="badge badge-danger">No</span>
+                    </div>
+                </td>
+                <td>
+                    <span>
+                        <img 
+                        matTooltip="{{ team.created_by.first_name }} {{ team.created_by.last_name }}"
+                        matTooltipPosition="right"
+                            [src]="team.created_by.profile_pic" class="avatar rounded-circle avatar-xl mb-2" alt="profile-image">
+                    </span>
+            </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+

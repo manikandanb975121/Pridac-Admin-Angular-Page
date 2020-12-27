@@ -1,0 +1,87 @@
+<form [formGroup]="editForm" *ngIf="user" (ngSubmit)="update()">
+    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="fa fa-user-circle mr-1"></i> Personal Info</h5>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" placeholder="Enter first name" formControlName="first_name" [value]="user.first_name">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" placeholder="Enter last name" formControlName="last_name" [value]="user.last_name">
+            </div>
+        </div> <!-- end col -->
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="lastname">Phone Number</label>
+                <input type="text" class="form-control"  placeholder="Enter Phone Number" formControlName="phone_number" [value]="user.phone_number">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="lastname">Profile Image</label>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+                        <input type="file" #filePicker (change)="imagePicker($event)"/>
+                    </div>
+
+                    <!-- <div class="col-md-6">
+                        <div class="mr-3 mb-3">
+                            <div class="image-preview" *ngIf="imagePreview">
+                                <img [src]="imagePreview" alt="image preview">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            &nbsp;
+        </div>
+
+        <div class="col-md-6">
+            <div class="image-preview" *ngIf="imagePreview">
+                <img [src]="imagePreview" alt="image preview">
+            </div>
+        </div>
+    </div>
+
+    <h5 class="mb-3 mt-4 text-uppercase bg-light p-2"><i class="fa fa-building mr-1"></i> Company Info</h5>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="firstname">Position</label>
+                <input type="text" class="form-control"  formControlName="position" [value]="user.position">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="lastname">Role</label>
+                <br>
+                <h6>{{ user.user_type }}</h6>
+                <!-- <input type="text" class="form-control" placeholder="Enter last name" formControlName="last_name" [value]="user.last_name"> -->
+            </div>
+        </div> <!-- end col -->
+    </div>
+
+    <div class="text-right">
+        <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
+    </div>
+
+</form>

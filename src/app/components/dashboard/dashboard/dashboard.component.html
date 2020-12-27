@@ -1,0 +1,47 @@
+<div class="style">
+    <div class="ml-5 mr-5 mt-3 mb-2">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active"><a href="#">Dashboard</a></li>
+            </ol>
+        </nav>
+    </div>
+    
+    <div class="m-5">
+        <div class="row"  *ngIf="role == 'Admin'" >
+            <div class="col-xl-3 col-md-4 col-sm-12">
+                <button style="outline-style: none;" matTooltip="Open Settings" matTooltipPosition="above" (click)="openSettings()" mat-mini-fab color="warn"><i class="fa fa-cog"></i></button>
+            </div>
+        </div>
+    
+        <div class="row"   *ngIf="role == 'User' && settings?.userCanSettings" >
+            <div class="col-xl-3 col-md-4 col-sm-12">
+                <button matTooltip="Open Settings" matTooltipPosition="above" (click)="openSettings()" mat-mini-fab color="warn"><i class="fa fa-cog"></i></button>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="m-5">
+    
+        <div class="row">
+            <div class="col-xl-3 col-md-4 col-sm-12">
+                <app-home></app-home>
+            </div>
+        
+            <div class="col-xl-3 col-md-4 col-sm-12">
+                <app-projects></app-projects>
+            </div>
+        
+            <div class="col-xl-3 col-md-4 col-sm-12">
+                <app-members></app-members>
+            </div>
+        
+            <div class="col-xl-3 col-md-4 col-sm-12">
+                <app-teams></app-teams>
+            </div>
+        
+        </div>
+    </div>
+    
+</div>

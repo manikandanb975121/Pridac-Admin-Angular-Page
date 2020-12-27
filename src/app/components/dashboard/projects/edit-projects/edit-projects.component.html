@@ -1,0 +1,232 @@
+<div *ngIf="projects" class="container">
+
+    <div class="row mb-3">
+        <div class="col">
+            <p class="h4" style="float: left;">EDIT PROJECT</p>
+        </div>
+        <div class="col">
+            <button style="float: right;" (click)="updateProject()" mat-raised-button color="primary" cdkFocusInitial>UPDATE</button>
+
+        </div>
+        
+    </div>
+
+    <form [formGroup]="projectForm" class="text-center border border-light p-5">
+
+        
+
+        <div class="row">
+            
+            <div class="col-xl-6 col-md-12">
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-12">
+                        <div class="image-preview" *ngIf="projects.iconic_image != null">
+                            <img [src]="projects.iconic_image" alt="image preview">
+                            <button (click)="deleteIconic()" style="cursor: pointer;" mat-mini-fab color="warn" class="mt-2"><i class="fa fa-times"></i></button>
+                        </div>
+
+                        <div class="image-preview" *ngIf="projects.iconic_image == null">
+                            <img [src]="projects.iconic_image" alt="image preview">
+                            <button mat-stroked-button class="ml-2" type="button" (click)="filePicker.click()">Pick Image</button>
+                            <input type="file" #filePicker (change)="imagePicker($event)"/>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+                
+
+                <div class="row top">
+
+                    <!-- <div class="row">
+                        <div class="col-xl-4">
+                            <button mat-stroked-button type="button" (click)="filePicker.click()"><i class="fa fa-camera"></i></button>
+                            <input type="file" #filePicker multiple accept="image/*" enctype="multipart/form-data"  (change)="multiImagePicker($event)"/>
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div class="row">
+                        <div class="col-xl-4 mb-5" *ngFor="let img of imagePreview; let i = index">
+
+                            <div class="image-preview2">
+                                <img [src]="img" class="" alt="image preview">
+                                <button (click)="deleteImage(i)" style="cursor: pointer;" mat-mini-fab color="warn" class="mt-2"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="col-xl-12 col-md-12 mt-5">
+
+                        <!-- <div class="row">
+                            <div class="col-xl-4 mt-4" *ngFor="let img of projects.images; let i = index">
+                                
+                                <div class="image-preview2">
+                                    <img [src]="img" class="mt-2" alt="image preview">
+                                    <button (click)="deleteImage(i)" style="cursor: pointer;" mat-mini-fab color="warn" class="mt-2"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        
+                        <!-- <div *ngFor="let img of projects.images">
+                            <div class="image-preview2">
+                                <img [src]="img" alt="image preview">
+                            </div>
+                           
+                        </div> -->
+                        <!-- <mat-carousel
+                            timings="500ms ease-in"
+                            [autoplay]="true"
+                            interval="3000"
+                            color="#282927"
+                            maxWidth="auto"
+                            proportion="50"
+                            slides="5"
+                            [loop]="true"
+                            [hideArrows]="true"
+                            [hideIndicators]="false"
+                            [useKeyboard]="true"
+                            [useMouseWheel]="false"
+                            orientation="ltr"
+                            >
+                            <mat-carousel-slide
+                                #matCarouselSlide
+                                *ngFor="let slide of projects.images; let i = index"
+                                [image]="slide"
+                                overlayColor="#00000040"
+                                [hideOverlay]="false"
+                            >
+                            </mat-carousel-slide>
+                            </mat-carousel> -->
+                    </div>
+
+
+                </div>
+                
+
+                
+
+            </div>
+            
+
+            <div class="col-xl-6 col-md-12">
+
+                <div class="row">
+
+                    <div class="col-xl-12 col-md-12">
+                        <label style="float: left;">PROJECT NAME</label>
+                        <input type="text" class="form-control mb-4" formControlName="name" placeholder="Teams Name">
+                    </div>
+        
+                    <div class="col-xl-12 col-md-12  mt-2">
+                        <label style="float: left;">PROJECT CODE</label>
+                        <input type="text" class="form-control mb-4" formControlName="code" placeholder="Teams Name">
+                    </div>
+                
+                </div>
+        
+                <div class="row">
+        
+                    <div class="col-xl-12 col-md-12  mt-4">
+                        <label style="float: left;">DESCRIPTION</label>
+                        <textarea rows="5" cols="40"  type="text" class="form-control mb-4" formControlName="description" placeholder="Teams Name"></textarea>
+                    </div>
+        
+                    <div class="col-xl-12 col-md-12  mt-2">
+                        <label style="float: left;">LOCATION</label>
+                        <input type="text" class="form-control mb-4" formControlName="location" placeholder="Teams Name">
+                    </div>
+                
+                </div>
+        
+        
+                <div class="row mt-4">
+        
+                    <div class="col-xl-12 col-md-12  mt-2">
+                        <label style="float: left;">CATEGORY</label>
+        
+                        <mat-select (selectionChange)="selectCategory($event)" class="form-control" formControlName="category">
+                            <mat-option>-----</mat-option>
+                            <mat-option *ngFor="let category of categories" [value]="category?.name">
+                              {{ category?.name }}
+                            </mat-option>
+                          </mat-select>
+        
+                    </div>
+        
+                    <div class="col-xl-12 col-md-12  mt-2">
+                        <label style="float: left;">COST</label>
+                        <input type="text" class="form-control mb-4" formControlName="value" placeholder="Teams Name">
+                    </div>
+                
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 mt-2">
+                        
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <!-- <div class="row">
+
+            <div class="col-xl-6 col-md-12">
+                <label style="float: left;">PROJECT NAME</label>
+                <input type="text" class="form-control mb-4" formControlName="name" placeholder="Teams Name">
+            </div>
+
+            <div class="col-xl-6 col-md-12">
+                <label style="float: left;">PROJECT CODE</label>
+                <input type="text" class="form-control mb-4" formControlName="code" placeholder="Teams Name">
+            </div>
+        
+        </div>
+
+        <div class="row mt-4">
+
+            <div class="col-xl-6 col-md-12">
+                <label style="float: left;">DESCRIPTION</label>
+                <textarea rows="5" cols="40"  type="text" class="form-control mb-4" formControlName="description" placeholder="Teams Name"></textarea>
+            </div>
+
+            <div class="col-xl-6 col-md-12">
+                <label style="float: left;">LOCATION</label>
+                <input type="text" class="form-control mb-4" formControlName="location" placeholder="Teams Name">
+            </div>
+        
+        </div>
+
+
+        <div class="row mt-4">
+
+            <div class="col-xl-6 col-md-12">
+                <label style="float: left;">CATEGORY</label>
+
+                <mat-select (selectionChange)="selectCategory($event)" class="form-control" formControlName="category">
+                    <mat-option>-----</mat-option>
+                    <mat-option *ngFor="let category of categories" [value]="category?.name">
+                      {{ category?.name }}
+                    </mat-option>
+                  </mat-select>
+
+            </div>
+
+            <div class="col-xl-6 col-md-12">
+                <label style="float: left;">COST</label>
+                <input type="text" class="form-control mb-4" formControlName="value" placeholder="Teams Name">
+            </div>
+        
+        </div> -->
+        
+    </form>
+
+</div>
+
+<!-- <input type="text" class="form-control mb-4" formControlName="category" placeholder="Teams Name"> -->

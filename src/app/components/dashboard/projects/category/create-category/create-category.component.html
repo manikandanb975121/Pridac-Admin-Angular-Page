@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Category</h2>
+<hr>
+<mat-dialog-content>
+    <div class="mt-3">
+        <form [formGroup]="createCategory" (ngSubmit)="submit()">
+
+            <div class="row">
+
+                <div class="col-xl-8 col-md-8">
+
+                    <div class="form-group">
+                        
+                        <div class="input-group">
+
+                            <div class="input-group-addon">
+                                <i class="fa fa-list fa-lg mt-2"></i>
+                            </div>
+                            
+                            <input class="form-control ml-3" placeholder="Category Name" formControlName="name"/>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xl-4 col-md-4">
+                    <button type="submit" color="primary" mat-raised-button>Add</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</mat-dialog-content>

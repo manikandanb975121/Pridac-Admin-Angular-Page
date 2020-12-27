@@ -1,0 +1,86 @@
+<!-- <div class="">
+
+    <img width="50%" style="float: left; margin: 50px;" height="100%" src="https://previews.123rf.com/images/djvstock/djvstock1803/djvstock180308511/97345126-under-construction-zone-with-builders-and-enginners-working-on-bricks-wall-colorful-design-vector-il.jpg">
+</div>
+
+<div class="container styles" >
+    <form [formGroup]="loginForm" class="text-center border border-light p-5" (ngSubmit)="login()">
+
+        <p class="h4 mb-4">Login</p>
+
+        <input type="email" class="form-control mb-4" placeholder="E-Mail" formControlName="email_id">
+
+
+        <input type="password" class="form-control mb-4" placeholder="Password" formControlName="password">
+
+        <div *ngIf="settings?.signup">
+            <div class="d-flex justify-content-center links">
+                Don't have an account?<p class="text-primary" (click)="openSignUp()"> &nbsp; Sign Up</p>
+            </div>
+        </div>
+        <div *ngIf="settings?.forgotPassword">
+            <div class="d-flex justify-content-center">
+                <p class="text-primary" (click)="openForgotPassword()">Forgot your password?</p>
+            </div>
+        </div>
+
+        <div
+        *ngIf="loginForm.controls.email_id.invalid || loginForm.controls.password.invalid" >
+        <button type="submit" disabled class="btn btn-info btn-block my-4" type="submit">Login</button>
+        </div>
+
+
+        <div
+        *ngIf="loginForm.controls.email_id.valid && loginForm.controls.password.valid">
+        <button type="submit"  class="btn btn-info btn-block my-4" type="submit">Login</button>
+        </div>
+
+    </form>
+</div> -->
+
+<div class="body">
+    <div class="container px-4 py-5 mx-auto">
+        <div class="card card0">
+            <div class="d-flex flex-lg-row flex-column-reverse">
+                <div class="card card1">
+                    <div class="row justify-content-center my-auto">
+                        <div class="col-md-8 col-10 my-5">
+                            <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="https://banner2.cleanpng.com/20180402/tjw/kisspng-computer-icons-letter-case-clip-art-letter-p-5ac21210836a54.1088813915226680485383.jpg"> </div>
+                            <h3 class="mb-5 text-center heading">We are PRIDAC</h3>
+                            <h6 class="msg-info">Please login to your account</h6>
+                            <form [formGroup]="loginForm">
+                                <div class="form-group"> <label class="form-control-label text-muted">Username</label> <input formControlName="email_id" type="text" id="email" name="email" placeholder="Phone no or email id" class="form-control"> </div>
+                                <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input formControlName="password" type="password" id="psw" name="psw" placeholder="Password" class="form-control"> </div>
+                            </form>
+                            <!-- <div class="form-group"> <label class="form-control-label text-muted">Username</label> <input type="text" id="email" name="email" placeholder="Phone no or email id" class="form-control"> </div>
+                            <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="psw" placeholder="Password" class="form-control"> </div> -->
+                            
+                            <div
+                                *ngIf="loginForm.controls.email_id.invalid || loginForm.controls.password.invalid" >
+                                <div class="row justify-content-center my-3 px-3"> <button disabled  class="btn-block btn-color">Login</button> </div>
+                            </div>
+
+                            <div
+                                *ngIf="!loginForm.controls.email_id.invalid || !loginForm.controls.password.invalid" >
+                                <div class="row justify-content-center my-3 px-3"> <button (click)="login()"  class="btn-block btn-color">Login to Pridac</button> </div>
+                            </div>
+
+                            <!-- <div class="row justify-content-center my-3 px-3"> <button (click)="login()"  class="btn-block btn-color">Login to Tidi</button> </div> -->
+                            <div *ngIf="settings?.forgotPassword" class="row justify-content-center my-2"> <a href="#"><small (click)="openForgotPassword()" class="text-muted">Forgot Password?</small></a> </div>
+                        </div>
+                    </div>
+                    <div  *ngIf="settings?.signup" class="bottom text-center mb-5">
+                        <p class="sm-text mx-auto mb-3">Don't have an account?<button (click)="openSignUp()" class="btn btn-white ml-2">Create new</button></p>
+                    </div>
+                </div>
+                <div class="card card2">
+                    <div class="my-auto mx-md-5 px-md-5 right">
+                        <h3 class="text-white">We are more than just a company</h3> <small class="text-white">
+                            Pridac has constructed a culture that encourages people to venture beyond the brief and to think big. Our workplaces and project sites are the most sought-after training grounds for young engineers. If you are excited by an environment that nurtures talent and exposes you to the latest in construction technology, then come and be a part of Team Pridac
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

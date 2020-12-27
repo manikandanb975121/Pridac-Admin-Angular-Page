@@ -1,0 +1,16 @@
+<div *ngIf="projects">
+    <!--Zoom effect-->
+<div class="row">
+    <div class="col-xl-3 col-md-12 mt-5" *ngFor="let project of projects">
+        <div class="view overlay zoom z-depth-3"  (click)="openProject(project.project._id)">
+            <img [src]="project.project.iconic_image" class="img-fluid" style="height: 50vh; width: 100%;" alt="zoom">
+            <div class="mask flex-center waves-effect waves-light rgba-blue-light">
+              <h5 class="text-white">{{ project.project.name | uppercase }}</h5>
+              <br>
+            </div>
+        </div>
+        
+</div>
+
+
+</div>

@@ -1,0 +1,39 @@
+<div class="team-area sp" *ngIf="members">
+    <div class="">
+       <div class="row">
+          <div class="col-sm-6 mt-4 col-md-4 col-lg-3 single-team" *ngFor="let member of members">
+            <div class="card">
+                <div class="inner">
+                    <!-- <div class="team-img view overlay zoom" style="height: 220px;" *ngFor="let pic of member.members">
+                       <img [src]="pic.profile_pic" class="avatar rounded-circle avatar-xl m-2" alt="Member Photo">
+                    </div> -->
+                    <div class="team-content">
+                       <h1><i class="fa fa-users" (click)="openTeams(member._id)"></i></h1>
+                       <h4>{{ member.name}}</h4>
+                       <h5>{{ member.created_by.first_name }}</h5>
+                    </div>
+                 </div>
+
+                 <div class="row mb-4 mr-4 ml-4" *ngIf="role == 'Admin'">
+                  <div class="col">
+                     <div style="float: right;">
+                        <button class="mr-3" mat-stroked-button color="primary" (click)="editTeams(member._id)"><i class="fa fa-pen"></i></button>
+                        <button mat-stroked-button color="warn" (click)="deleteTeams(member._id)"><i class="fa fa-trash"></i></button>
+                     </div>
+                  </div>
+                 </div>
+
+                 <div class="row mb-4 mr-4 ml-4" *ngIf="role == 'User' && settings?.user">
+                  <div class="col">
+                     <div style="float: right;">
+                        <button class="mr-3" mat-stroked-button color="primary" (click)="editTeams(member._id)"><i class="fa fa-pen"></i></button>
+                        <button mat-stroked-button color="warn" (click)="deleteTeams(member._id)"><i class="fa fa-trash"></i></button>
+                     </div>
+                  </div>
+                 </div>
+
+              </div>
+          </div>
+       </div>
+    </div>
+ </div>

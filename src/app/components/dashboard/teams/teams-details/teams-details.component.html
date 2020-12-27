@@ -1,0 +1,92 @@
+<!-- <div class="ml-5 mr-5 mt-3 mb-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="#">Teams</a></li>
+          <li class="breadcrumb-item active"><a href="#">Teams Details</a></li>
+        </ol>
+    </nav>
+</div> -->
+
+
+<div class="team-area sp" *ngIf="teams">
+    
+
+<div class="row  bg-dark ">
+    <div class="col">
+        <div class="text-center py-4 px-5">
+            <div class="container">
+              <h1 class="font-weight-light text-white">{{ teams.name | uppercase }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row ml-3 mt-3">
+    <div class="col-md-4 card">
+        <div class="row">
+            <div class="col-md-6">
+                <span class="m-3"><div>
+                    <h6>Created By : </h6>
+                </div>
+                <div>
+                    <img [src]="teams.created_by.profile_pic" class="rounded-circle avatar-xl m-2" alt="profile-image">
+                    {{ teams.created_by.first_name }}
+                </div></span>
+            </div>
+            <div class="col-md-6">
+                <span class="m-3"><div>
+                    <h6>Created On : </h6>
+                </div>
+                <div>
+                    <i class="fa fa-calendar"></i>
+                    {{ teams.created_ts | date: 'medium' }}
+                </div></span>
+            </div>
+        </div>
+        
+                
+    </div>
+</div>
+
+    <div class="m-5">
+       <div class="row">
+          <div class="col-sm-6 mt-4 col-md-4 col-lg-2 single-team" *ngFor="let member of teams.members">
+            <div class="card" (click)="viewMembers(member._id)">
+                <div class="inner">
+
+
+                    <!-- <div class="team-img view overlay zoom" style="height: 220px;">
+                       <img [src]="member.profile_pic" class="image-fluid" alt="Member Photo">
+                    </div> -->
+
+                    <div class="mt-4 d-flex justify-content-center">
+                     <div class="image_outer_container">
+                        <div class="red_icon"></div>
+                        <div class="image_inner_container">
+                           <img [src]="member.profile_pic"  alt="Member Photo">
+                        </div>
+                     </div>
+                  </div>
+
+                    <div class="team-content">
+                       <h4>{{ member.first_name}} {{ member.last_name[0] }}</h4>
+                       <h5>{{ member.position }}</h5>
+                    </div>
+                 </div>
+              </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+
+   <!-- <div class="d-flex justify-content-center h-100">
+      <div class="image_outer_container">
+         <div class="green_icon"></div>
+         <div class="image_inner_container">
+            <img src="https://i.pinimg.com/originals/43/96/61/439661dcc0d410d476d6d421b1812540.jpg">
+         </div>
+      </div>
+   </div> -->

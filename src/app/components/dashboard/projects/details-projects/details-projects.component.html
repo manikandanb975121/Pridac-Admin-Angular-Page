@@ -1,0 +1,168 @@
+
+    <div class="main" *ngIf="project">
+    
+        <div class="row mt-4 mb-5"  *ngIf="role == 'Admin'">
+            <div class="col-xl-12">
+                <button style="float: right;" (click)="Images(addImages)" color="primary" class="mr-5" mat-mini-fab 
+                matTooltip="Add Images"
+              matTooltipPosition="above"
+              >
+                    <i class="fa fa-camera"></i>
+                </button>
+    
+                <button 
+                    style="float: right;" matTooltip="Delete Project"
+                    matTooltipPosition="above"
+                    mat-mini-fab (click)="deleteProjects(project._id)" color="warn"><i class="fa fa-trash"></i></button>
+                
+                <button
+                matTooltip="Edit Project"
+                matTooltipPosition="above"
+                style="float: right;" mat-mini-fab (click)="editProjects(project._id)" color="primary"><i class="fa fa-edit"></i></button>
+            </div>
+        </div>
+
+
+        <div class="row mt-4 mb-5"  *ngIf="role == 'User' && settings?.user">
+            <div class="col-xl-12">
+                <button style="float: right;" (click)="Images(addImages)" color="primary" class="mr-5" mat-mini-fab 
+                matTooltip="Add Images"
+              matTooltipPosition="above"
+              >
+                    <i class="fa fa-camera"></i>
+                </button>
+    
+                <button 
+                    style="float: right;" matTooltip="Delete Project"
+                    matTooltipPosition="above"
+                    mat-mini-fab (click)="deleteProjects(project._id)" color="warn"><i class="fa fa-trash"></i></button>
+                
+                <button
+                matTooltip="Edit Project"
+                matTooltipPosition="above"
+                style="float: right;" mat-mini-fab (click)="editProjects(project._id)" color="primary"><i class="fa fa-edit"></i></button>
+            </div>
+        </div>
+
+
+      <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <article class="project-single p-t-50 p-b-50">
+                    <div class="row m-b-30">
+                        <div class="col-md-8">
+                            <div class="master-slider ms-skin-default" id="mastergallery">
+                                <div class="ms-slide">
+                                    <img src="/assets/img/images/blank.gif" data-src="/assets/img/images/lightbox-1.jpg" alt="lorem ipsum dolor sit" />
+                                    <img class="ms-thumb" [src]="project.iconic_image"  class="img-fluid waves-effect" style="height: 68vh; width: 90%;" alt="thumb" />
+                                </div>
+                            </div>
+                            <div class="ms-slide mt-5" style="width: 90%;">
+                                <mat-carousel
+                                timings="500ms ease-in"
+                                [autoplay]="true"
+                                interval="3000"
+                                color="#282927"
+                                maxWidth="auto"
+                                proportion="25"
+                                slides="5"
+                                [loop]="true"
+                                [hideArrows]="false"
+                                [hideIndicators]="false"
+                                [useKeyboard]="true"
+                                [useMouseWheel]="false"
+                                orientation="ltr"
+                            >
+                                <mat-carousel-slide
+                                    #matCarouselSlide
+                                    *ngFor="let img of project.images; let i = index"
+                                    [image]="img"
+                                    overlayColor="#00000040"
+                                    [hideOverlay]="false"
+                                >
+                                </mat-carousel-slide>
+                            </mat-carousel>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <h3><b>Project Information</b></h3>
+                            <div style="width:250px;height:308px;overflow:auto">
+      
+                                <table class="table m-b-60">
+                                    <tr>
+                                        <td> <span style="font-size:14px;">Construction Date :</span><span style="font-size: 14px;"> <b> {{ project.construction_date | date }}</b></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span style="font-size: 14px;">Location : </span> <span style="font-size: 14px;" ><b>{{ project?.location }}</b></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td> <span style="font-size: 14px;">Value : </span> <span style="font-size: 14px;"><b>{{ project?.value }}</b></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="font-size: 14px;">Category : </span> <span style="font-size: 14px;"><b>{{ project?.category }}</b></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span style="font-size: 14px;">Firm : </span> <span style="font-size: 14px;"> <b>{{ project?.name }}</b></span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br>
+                            <h3>Project Details</h3>
+                            <p>{{ project.description }}</p>
+                        </div>
+                    </div>
+                    <h3 class="mt-4">More Project Details</h3>
+                    <p>No comfort do written conduct at prevent manners on. Celebrated contrasted discretion him sympathize her collecting occasional. Do answered bachelor occasion in of offended no concerns. Supply worthy warmth branch of no ye. Voice tried known to as my to. Though wished merits or be. Alone visit use these smart rooms ham. No waiting in on enjoyed placing it inquiry.</p>
+                    <p>Expenses as material breeding insisted building to in. Continual so distrusts pronounce by unwilling listening. Thing do taste on we manor. Him had wound use found hoped. Of distrusts immediate enjoyment curiosity do. Marianne numerous saw thoughts the humoured.</p>
+                    <!-- <ul class="">
+                        <li>Far curiosity incommode now led smallness allowance. Favour bed assure son things yet.</li>
+                        <li>Continual so distrusts pronounce by unwilling listening.</li>
+                        <li>Celebrated contrasted discretion him sympathize her collecting occasional.</li>
+                    </ul> -->
+                    <p>Dwelling and speedily ignorant any steepest. Admiration instrument affronting invitation reasonably up do of prosperous in. Shy saw declared age debating ecstatic man. Call in so want pure rank am dear were. Remarkably to continuing in surrounded diminution on. In unfeeling existence objection immediate repulsive on he in. Imprudence comparison uncommonly me he difficulty diminution resolution. Likewise proposal differed scarcely dwelling as on raillery. September few dependent extremity own continued and ten prevailed attending. Early to weeks we could.</p>
+                    <p>Remain valley who mrs uneasy remove wooded him you. Her questions favourite him concealed. We to wife face took he. The taste begin early old why since dried can first. Prepared as or humoured formerly. Evil mrs true get post. Express village evening prudent my as ye hundred forming. Thoughts she why not directly reserved packages you. Winter an silent favour of am tended mutual.</p>
+                </article>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <ng-template #addImages>
+
+
+        
+
+        <div class="row">
+            <div class="col-xl-3 image-preview2" *ngFor="let img of images; let i = index">
+                    <h6 class="mt-4 font-weight-bold text-center">Image {{ i + 1 }}</h6>
+                    <img [src]="img" alt="image preview" class="border border-dark rounded shadow-sm" style="padding: 30px;">
+                    <button (click)="deleteImage(i)" style="cursor: pointer; float: right; margin-right: 50%;" mat-mini-fab color="warn" class="mt-2"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-xl-3 image-preview2" *ngFor="let img of imagePreview; let i = index">
+                    <h6 class="mt-4 font-weight-bold text-center">Image {{ i + 1 }}</h6>
+                    <img [src]="img" alt="image preview" class="border border-dark rounded shadow-sm" style="padding: 30px;">
+                    <button (click)="deleteImageFromPicker(i)" style="cursor: pointer; float: right; margin-right: 50%;" mat-mini-fab color="warn" class="mt-2"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+
+        <!-- <div class="image-preview3" *ngFor="let img of imagePreview">
+            <img [src]="img">
+        </div> -->
+    
+        <div class="row mt-5">
+            <div class="col-xl-12">
+                <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+                <input type="file" #filePicker multiple accept="image/*" enctype="multipart/form-data"  (change)="imagePicker($event)"/>
+                <button mat-stroked-button type="button" (click)="uploadImages()">Upload</button>
+            </div>
+        </div>
+
+    </ng-template>

@@ -1,0 +1,17 @@
+<div class="card m-3" *ngFor="let category of categories">
+    <!-- <div class="card-body"> -->
+        
+        <div class="row  p-2">
+            <div class="col-xl-10">
+                <p class="card-title">{{ category.name }}</p>
+            </div>
+            <div class="col-xl-2">
+                <button mat-mini-fab color="warn" (click)="deleteCategory(category._id)"><i class="fa fa-trash"></i></button>
+            </div>
+        </div>
+            
+            
+        
+    <!-- </div> -->
+    <!-- <p>{{ category.name }}</p> -->
+</div>

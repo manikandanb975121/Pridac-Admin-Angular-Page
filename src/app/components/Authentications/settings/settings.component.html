@@ -1,0 +1,96 @@
+<h5><i class="fa fa-cog"></i> &nbsp; Settings Page</h5>
+
+<hr>
+<form [formGroup]="settingsForm" (ngSubmit)="updateSettings()">
+
+    <div class="row">
+        <div class="col-md-9">
+            <h6>Conditions </h6>
+        </div>
+
+        <div class="col-md-3">
+            <h6>Yes / No </h6>
+        </div>
+       
+        
+    </div>
+
+
+    <div class="row mt-4">
+        <div class="col-md-9">
+            <label>User Can able to make a change: </label>
+        </div>
+
+        <div class="col-md-3">
+            <mat-checkbox class="example-margin" formControlName="user"></mat-checkbox>
+        </div>
+       
+        
+    </div>
+
+
+    <div class="row mt-2">
+        <div class="col-md-9">
+            <label>User Can able to Login: </label>
+        </div>
+
+        <div class="col-md-3">
+            <mat-checkbox class="example-margin" formControlName="userCanLogin"></mat-checkbox>
+        </div>
+       
+        
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-9">
+            <label>Make Sign-up Page visible in Login Page </label>
+        </div>
+
+        <div class="col-md-3">
+            <mat-checkbox class="example-margin" formControlName="signup"></mat-checkbox>
+        </div>
+       
+        
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-9">
+            <label>Make Settings Options visible to User </label>
+        </div>
+
+        <div class="col-md-3">
+            <mat-checkbox class="example-margin" formControlName="userCanSettings"></mat-checkbox>
+        </div>
+       
+        
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-9">
+            <label>Make Forgot Password Options visible to Login Page </label>
+        </div>
+
+        <div class="col-md-3">
+            <mat-checkbox class="example-margin" formControlName="forgotPassword"></mat-checkbox>
+        </div>
+       
+        
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-9">
+            <label>&nbsp; </label>
+        </div>
+
+        <div class="col-md-3">
+            <button type="submit" color="primary" mat-raised-button>Update</button>
+        </div>
+       
+        
+    </div>
+
+</form>
+<!-- <div class="custom-control custom-radio">
+    <input type="radio" class="custom-control-input" id="defaultChecked2" name="defaultExample2">
+    <label class="custom-control-label" for="defaultChecked2" (click)="UserRadioBox()">Yes </label>
+  </div> -->

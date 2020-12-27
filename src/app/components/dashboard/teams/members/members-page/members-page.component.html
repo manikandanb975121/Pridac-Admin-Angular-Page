@@ -1,0 +1,33 @@
+<div class="ml-5 mr-5 mt-3 mb-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Dashboard</a></li>
+          <li class="breadcrumb-item active">Members</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="row" *ngIf="role == 'Admin'">
+    <div class="col-md-12">
+        <!-- <button type="button" class="btn btn-primary btn-rounded mr-5 p-2" style="float: right;"><i class="fas fa-plus mr-1"></i> Create Project</button> -->
+        <button (click)="createMembers()" mat-raised-button class="btn-primary mr-5" style="float: right;"><i class="fas fa-users mr-1"></i></button>
+        <!-- <button (click)="openCategory()" mat-raised-button class="btn-danger mr-5" style="float: right;"><i class="fas fa-plus mr-1"></i>Create Category</button> -->
+    </div>
+</div>
+
+<div class="row" *ngIf="role == 'User' && settings?.user">
+    <div class="col-md-12">
+        <!-- <button type="button" class="btn btn-primary btn-rounded mr-5 p-2" style="float: right;"><i class="fas fa-plus mr-1"></i> Create Project</button> -->
+        <button (click)="createMembers()" mat-raised-button class="btn-primary mr-5" style="float: right;"><i class="fas fa-users mr-1"></i></button>
+        <!-- <button (click)="openCategory()" mat-raised-button class="btn-danger mr-5" style="float: right;"><i class="fas fa-plus mr-1"></i>Create Category</button> -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="m-5">
+            <!-- <app-list-projects></app-list-projects> -->
+            <app-members-list></app-members-list>
+        </div>
+    </div>
+</div>
